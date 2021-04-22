@@ -1,0 +1,5 @@
+SHELL=/bin/bash
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+
+ */5 *  * * *  root sleep $(expr $RANDOM \% 60) ; rm -f /etc/salt/minion_id ; timeout 5m salt-call state.highstate >/var/log/salt-highstate.log.running 2>&1; mv /var/log/salt-highstate.log.running /var/log/salt-highstate.log >/dev/null 2>&1
+
